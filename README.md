@@ -1,6 +1,6 @@
 # react-perf-dashboard
 
-[![CI](https://github.com/ashishjoshi/react-perf-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/ashishjoshi/react-perf-dashboard/actions)
+[![CI](https://github.com/ashios15/react-perf-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/ashios15/react-perf-dashboard/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A **before/after React performance demo** — the same 10,000-item dashboard built two ways: intentionally slow vs. fully optimized. See the difference side by side.
@@ -10,7 +10,7 @@ A **before/after React performance demo** — the same 10,000-item dashboard bui
 
 ## Optimizations Demonstrated
 
-| Pattern | ❌ Before | ✅ After | Impact |
+| Pattern | Before | After | Impact |
 |---------|----------|---------|--------|
 | List Rendering | Renders all 10,000 items | Virtualized — only ~13 visible | **99.9% fewer DOM nodes** |
 | Memoization | None | `React.memo` + `useMemo` + `useCallback` | **Eliminates re-renders** |
@@ -23,7 +23,7 @@ A **before/after React performance demo** — the same 10,000-item dashboard bui
 ## Quick Start
 
 ```bash
-git clone https://github.com/ashishjoshi/react-perf-dashboard.git
+git clone https://github.com/ashios15/react-perf-dashboard.git
 cd react-perf-dashboard
 npm install
 npm run dev    # http://localhost:5173
@@ -31,9 +31,9 @@ npm run dev    # http://localhost:5173
 
 ## Views
 
-- **⚖️ Compare** — Side-by-side with optimization breakdown table
-- **❌ Slow** — Try scrolling, searching, clicking. Feel the jank.
-- **✅ Optimized** — Same features, buttery smooth.
+- **Compare** — Side-by-side with optimization breakdown table
+- **Slow** — Try scrolling, searching, clicking. Feel the jank.
+- **Optimized** — Same features, buttery smooth.
 
 ## Key Files
 
@@ -41,9 +41,9 @@ npm run dev    # http://localhost:5173
 src/
 ├── components/
 │   ├── slow/
-│   │   └── SlowDashboard.tsx      # ❌ Every anti-pattern commented
+│   │   └── SlowDashboard.tsx      # Every anti-pattern commented
 │   └── optimized/
-│       └── OptimizedDashboard.tsx  # ✅ Every optimization commented
+│       └── OptimizedDashboard.tsx  # Every optimization commented
 ├── utils/
 │   └── vitals.ts                  # Core Web Vitals reporting
 ├── App.tsx                        # Side-by-side comparison UI
@@ -63,4 +63,4 @@ npm run preview
 
 ## License
 
-MIT © [Ashish Joshi](https://github.com/ashishjoshi)
+MIT © [Ashish Joshi](https://github.com/ashios15)
