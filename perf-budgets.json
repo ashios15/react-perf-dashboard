@@ -1,0 +1,11 @@
+{
+  "tolerance": 0.2,
+  "entries": [
+    { "scenario": "mount",       "variant": "slow",      "totalMs": 900, "maxMs": 800 },
+    { "scenario": "mount",       "variant": "optimized", "totalMs": 60,  "maxMs": 40 },
+    { "scenario": "scroll-100",  "variant": "slow",      "totalMs": 400, "p95Ms": 40 },
+    { "scenario": "scroll-100",  "variant": "optimized", "totalMs": 30,  "p95Ms": 4 },
+    { "scenario": "filter-10k",  "variant": "slow",      "totalMs": 500, "maxMs": 500 },
+    { "scenario": "filter-10k",  "variant": "optimized", "totalMs": 80,  "maxMs": 60 }
+  ]
+}

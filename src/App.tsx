@@ -1,4 +1,6 @@
 import React, { useState, lazy, Suspense } from "react";
+import { version as reactVersion } from "react";
+import { BenchmarkView } from "./BenchmarkView";
 
 const SlowDashboard = lazy(() =>
   import("./components/slow/SlowDashboard").then((m) => ({
@@ -11,8 +13,10 @@ const OptimizedDashboard = lazy(() =>
   })),
 );
 
+type View = "slow" | "optimized" | "compare" | "benchmark";
+
 export default function App() {
-  const [view, setView] = useState<"slow" | "optimized" | "compare">("compare");
+  const [view, setView] = useState<View>("compare");
 
   return (
     <div
@@ -38,7 +42,7 @@ export default function App() {
           performance.
         </p>
         <div style={{ display: "flex", gap: "8px" }}>
-          {(["slow", "optimized", "compare"] as const).map((v) => (
+          {(["slow", "optimized", "compare", "benchmark"] as const).map((v) => (
             <button
               key={v}
               onClick={() => setView(v)}
@@ -57,7 +61,9 @@ export default function App() {
                 ? "❌ Slow"
                 : v === "optimized"
                   ? "✅ Optimized"
-                  : "⚖️ Compare"}
+                  : v === "compare"
+                    ? "⚖️ Compare"
+                    : "📊 Benchmark"}
             </button>
           ))}
         </div>
@@ -162,7 +168,13 @@ export default function App() {
             </div>
           }
         >
-          {view === "compare" ? (
+          {view === "benchmark" ? (
+            <BenchmarkView
+              slow={<SlowDashboard />}
+              optimized={<OptimizedDashboard />}
+              reactVersion={reactVersion}
+            />
+          ) : view === "compare" ? (
             <div
               style={{
                 display: "grid",

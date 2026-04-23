@@ -1,37 +1,54 @@
 {
-  "name": "react-perf-dashboard",
-  "version": "1.0.0",
+  "name": "@ashios15/react-perf-dashboard",
+  "version": "2.0.0",
   "private": true,
-  "description": "Before/after React performance demo. Intentionally slow app → optimized version with Lighthouse scores.",
+  "description": "Before/after React performance demo with a reproducible in-browser Profiler harness and committed perf budgets. Regressions fail CI — the 'optimized' numbers can't silently drift.",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "lighthouse": "lhci autorun"
+    "test:watch": "vitest",
+    "perf:check": "tsx scripts/perf-check.ts",
+    "perf:save": "tsx scripts/perf-check.ts --save"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "web-vitals": "^4.2.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "web-vitals": "^4.2.4"
   },
   "devDependencies": {
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "typescript": "^5.7.0",
-    "vite": "^6.0.0",
-    "vitest": "^2.1.0"
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.9"
   },
   "keywords": [
     "react",
     "performance",
     "core-web-vitals",
-    "lighthouse",
-    "optimization",
-    "demo"
+    "profiler",
+    "budgets",
+    "regression",
+    "ci"
   ],
-  "author": "Ashish Joshi",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashios15/react-perf-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashios15/react-perf-dashboard/issues"
+  },
+  "homepage": "https://github.com/ashios15/react-perf-dashboard#readme",
+  "author": "ashios15",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
 }
